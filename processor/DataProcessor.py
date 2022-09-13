@@ -18,7 +18,7 @@ class DataProcessor:
                 return s
         return Exception("song not found")
 
-    def most_top_ranked_songs(self):
+    def most_top_ranked_songs_artist(self):
         groups = defaultdict(list)
         for s in self.songs:
             if s.rank == 1:

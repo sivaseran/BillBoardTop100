@@ -19,6 +19,11 @@ def main_menu():
         date = input("please select a day in the format (yyyy-MM-dd): ")
         song = data_processor.get_top_ranked_song(date)
         print("Top song of the date " + date + " is " + song.song)
+        main_menu()
+    elif i == 2:
+        artist = data_processor.most_top_ranked_songs_artist()
+        print("Most top ranked song artist : " + artist)
+        main_menu()
     else:
         print("thanks for choosing our service")
         exit(1)
