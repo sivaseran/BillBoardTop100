@@ -2,6 +2,7 @@ from processor import DataProcessor
 
 data_processor = DataProcessor()
 
+
 def main_menu():
     print("Welcome to BillBoard 100, Please select the option from below menu")
     print("""
@@ -23,6 +24,13 @@ def main_menu():
     elif i == 2:
         artist = data_processor.most_top_ranked_songs_artist()
         print("Most top ranked song artist : " + artist)
+        main_menu()
+    elif i == 3:
+        songs = data_processor.longest_number_of_weeks_on_board(10)
+        print("10 songs which had longest weeks on the board")
+        for i in range(10):
+            print(str(i + 1) + ". " + songs[i])
+        print("\n")
         main_menu()
     else:
         print("thanks for choosing our service")
