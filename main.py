@@ -1,3 +1,6 @@
+from processor import DataProcessor
+
+data_processor = DataProcessor()
 
 def main_menu():
     print("Welcome to BillBoard 100, Please select the option from below menu")
@@ -13,7 +16,9 @@ def main_menu():
     print("showing option " + inp)
     i = int(inp)
     if i == 1:
-        pass
+        date = input("please select a day in the format (yyyy-MM-dd): ")
+        song = data_processor.get_top_ranked_song(date)
+        print("Top song of the date " + date + " is " + song.song)
     else:
         print("thanks for choosing our service")
         exit(1)
