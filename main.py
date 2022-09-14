@@ -1,5 +1,6 @@
 from processor import DataProcessor
 import matplotlib.pylab as plt
+import datetime
 
 data_processor = DataProcessor()
 
@@ -19,9 +20,16 @@ def main_menu():
     i = int(inp)
     if i == 1:
         date = input("please select a day in the format (yyyy-MM-dd): ")
-        song = data_processor.get_top_ranked_song(date)
-        print("Top song of the date " + date + " is " + song.song)
-        main_menu()
+        if validate(date):
+            try:
+                song = data_processor.get_top_ranked_song(date)
+                print("Top song of the date " + date + " is " + song.song)
+            except Exception :
+                print('song not found for ' + date)
+                print("---------------------------------------------------")
+            main_menu()
+        else:
+            main_menu()
     elif i == 2:
         artist = data_processor.most_top_ranked_songs_artist()
         print("Most top ranked song artist : " + artist)
@@ -48,6 +56,21 @@ def main_menu():
     else:
         print("thanks for choosing our service")
         exit(1)
+
+
+def validate(date_text):
+    try:
+        input_date = datetime.datetime.strptime(date_text, '%Y-%m-%d')
+        if input_date <= datetime.datetime.now():
+            return True
+        else:
+            print("ERROR: Date cannot be in the future")
+            print("---------------------------------------------------")
+            return False
+    except ValueError:
+        print("ERROR:  Incorrect data format, should be yyyy-MM-dd")
+        print("---------------------------------------------------")
+        return False
 
 
 if __name__ == '__main__':
