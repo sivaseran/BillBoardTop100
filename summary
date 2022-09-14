@@ -32,6 +32,8 @@ And then loaded data converted to list and finally it will be converted to list 
 data = list(loaded_data)
 songs = [Song(data[i][0], int(data[i][1]), data[i][2], data[i][3], int(data[i][4]) if len(data[i][4]) > 0 else 0, int(data[i][5]), int(data[i][6])) for i in range(len(data))]
 
+Test case: Validating the number of lines of the test CSV file.
+
 DataProcessor
 -------------
 When we initializing this class, data will be loaded from the CSVReader
