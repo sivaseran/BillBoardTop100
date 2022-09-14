@@ -33,11 +33,11 @@ def main_menu():
             print(str(i + 1) + ". " + songs[i])
         print("\n")
         main_menu()
-    elif i == 5:
+    elif i == 4:
         song = data_processor.large_move()
         print("song which has moved most ranks : " + song)
         main_menu()
-    elif i == 6:
+    elif i == 5:
         songs = data_processor.top_songs(10)
         song_names = list(zip(*songs))[0]
         counts = list(zip(*songs))[1]
