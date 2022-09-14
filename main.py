@@ -1,4 +1,5 @@
 from processor import DataProcessor
+import matplotlib.pylab as plt
 
 data_processor = DataProcessor()
 
@@ -37,7 +38,13 @@ def main_menu():
         print("song which has moved most ranks : " + song)
         main_menu()
     elif i == 6:
-        pass
+        songs = data_processor.top_songs(10)
+        song_names = list(zip(*songs))[0]
+        counts = list(zip(*songs))[1]
+        plt.bar(song_names, counts, align='center')
+        plt.xticks(rotation=30, ha='right')
+        plt.ylabel('Total Days of in First Position')
+        plt.show()
     else:
         print("thanks for choosing our service")
         exit(1)

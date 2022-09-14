@@ -44,10 +44,10 @@ class DataProcessor:
         songs_freq = defaultdict(list)
         for s in self.songs:
             if s.rank == 1:
-                if s.artist not in songs_freq.keys():
-                    songs_freq[s.artist] = 1
+                if s.song not in songs_freq.keys():
+                    songs_freq[s.song] = 1
                 else:
-                    songs_freq[s.artist] = songs_freq[s.artist] + 1
+                    songs_freq[s.song] = songs_freq[s.song] + 1
 
         c = Counter(songs_freq)
         return c.most_common(n)
