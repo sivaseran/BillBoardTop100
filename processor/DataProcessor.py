@@ -36,7 +36,7 @@ class DataProcessor:
         return [x.song for x in sorted_songs[0:n]]
 
     def large_move(self):
-        sorted_songs = sorted(self.songs, key=lambda x: x.peak_rank - x.rank, reverse=True)
+        sorted_songs = sorted(self.songs, key=lambda x: x.last_week - x.rank, reverse=True)
 
         return sorted_songs[0].song
 
